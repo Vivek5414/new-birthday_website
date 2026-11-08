@@ -1,0 +1,87 @@
+.hero-portrait {
+  position: absolute;
+  z-index: 2;
+  top: 30.8%;
+  left: calc(50% + 28svh);
+  width: clamp(15.625rem, 19vw, 17.5rem);
+  aspect-ratio: 1 / 1;
+  animation: portrait-float 5s ease-in-out infinite;
+  filter: drop-shadow(0 .3rem .4rem rgba(42, 24, 10, .25));
+  transform: translate(-50%, -50%);
+}
+
+.hero-portrait__frame {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 3px solid var(--portrait-gold);
+  border-radius: 50%;
+  padding: 4px;
+  background: var(--portrait-cream);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .9),
+    0 0 0 1px rgba(116, 72, 22, .55),
+    0 .2rem .45rem rgba(49, 31, 15, .3);
+  transform: translate(-50%, -50%);
+}
+
+.hero-portrait__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.hero-portrait__sprig {
+  position: absolute;
+  z-index: 2;
+  top: 8%;
+  width: 36%;
+  height: 84%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 1px rgba(37, 45, 20, .35));
+  pointer-events: none;
+}
+
+.hero-portrait__sprig-left { left: -7%; transform: rotate(-17deg); }
+.hero-portrait__sprig-right { right: -7%; transform: rotate(17deg); }
+.hero-portrait__stem { fill: none; stroke: var(--portrait-stem); stroke-linecap: round; stroke-width: 4; }
+.hero-portrait__leaf { fill: var(--portrait-leaf); stroke: var(--portrait-leaf-edge); stroke-linejoin: round; stroke-width: 1.5; }
+
+@keyframes portrait-float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-1deg); }
+  50% { transform: translate(-50%, calc(-50% - 5px)) rotate(1deg); }
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+  .hero-portrait {
+    width: clamp(12.5rem, 23vw, 13.75rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-portrait {
+    top: 22.5%;
+    left: calc(66% - 3svh);
+    width: clamp(12.5rem, 28vw, 13.75rem);
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-portrait {
+    width: clamp(8.75rem, 40vw, 10.625rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-portrait { animation: none; }
+}

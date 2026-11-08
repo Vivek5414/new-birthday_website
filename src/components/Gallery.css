@@ -1,0 +1,38 @@
+.gallery-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1.3rem; padding: .5rem .3rem 1rem; }
+.gallery-tile { position: relative; min-width: 0; padding: .65rem .65rem 2.6rem; border: 1px solid rgba(186,145,72,.25); border-radius: .55rem; background: #fffdf5; box-shadow: 0 .45rem 1.1rem rgba(42, 59, 39, .13), 0 .1rem .25rem rgba(42, 59, 39, .08), inset 0 1px rgba(255,255,255,.9); cursor: zoom-in; text-align: left; transform: rotate(var(--postcard-tilt, 0deg)); transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
+.gallery-tile::before, .gallery-tile::after { position: absolute; z-index: 1; width: 1rem; height: 1rem; border-color: var(--postcard-leaf); border-style: solid; content: ''; opacity: .8; pointer-events: none; }
+.gallery-tile::before { top: .25rem; left: .25rem; border-width: 1px 0 0 1px; border-radius: .55rem 0 0; }
+.gallery-tile::after { right: .25rem; bottom: .25rem; border-width: 0 1px 1px 0; border-radius: 0 0 .55rem; }
+.gallery-tile-1 { grid-column: span 2; --postcard-tilt: -2deg; }
+.gallery-tile-2 { grid-column: span 2; margin-top: 1rem; --postcard-tilt: 1.7deg; }
+.gallery-tile-3 { grid-column: span 2; --postcard-tilt: -1deg; }
+.gallery-tile-4 { grid-column: 2 / span 2; --postcard-tilt: 1.4deg; }
+.gallery-tile-5 { grid-column: 4 / span 2; margin-top: .8rem; --postcard-tilt: -1.8deg; }
+.gallery-tile:hover, .gallery-tile:focus-visible { z-index: 2; box-shadow: 0 .9rem 1.7rem rgba(42, 59, 39, .2); transform: translateY(-7px) rotate(0) scale(1.025); }
+.gallery-tile img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: .25rem; background: #e8ead9; object-fit: cover; object-position: center; }
+.gallery-caption { position: absolute; right: .65rem; bottom: .72rem; left: .65rem; color: var(--forest); font-family: var(--display-font); font-size: .8rem; font-weight: 700; text-align: center; }
+.gallery-caption span { padding-left: .25rem; color: var(--coral); }
+.lightbox-open { overflow: hidden; }
+.lightbox { position: fixed; z-index: 100; inset: 0; display: grid; grid-template-columns: 3rem minmax(0, 1fr) 3rem; align-items: center; justify-items: center; gap: 1rem; padding: 3rem; background: rgba(12, 29, 23, .94); backdrop-filter: blur(12px); animation: fade-in .2s ease-out; }
+.lightbox figure { width: min(100%, 68rem); margin: 0; }
+.lightbox figure img { display: block; width: 100%; height: auto; max-height: 78vh; border-radius: 1rem; object-fit: contain; object-position: center; }
+.lightbox figcaption { padding-top: .9rem; color: var(--cream); font-family: var(--display-font); font-size: 1.1rem; text-align: center; }
+.lightbox-close, .lightbox-arrow { display: grid; place-items: center; width: 2.8rem; height: 2.8rem; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: white; background: rgba(255,255,255,.1); cursor: pointer; }
+.lightbox-close { position: absolute; top: 1.25rem; right: 1.5rem; font-size: 1.8rem; }
+.lightbox-arrow { font-size: 2rem; }
+@media (max-width: 720px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; padding-inline: .1rem; } .gallery-tile-1, .gallery-tile-3, .gallery-tile-5 { grid-column: 1; } .gallery-tile-2, .gallery-tile-4 { grid-column: 2; margin-top: 1rem; } .gallery-tile { padding: .45rem .45rem 2.25rem; } .gallery-caption { right: .45rem; bottom: .62rem; left: .45rem; font-size: .72rem; } .lightbox { grid-template-columns: 2.25rem minmax(0, 1fr) 2.25rem; gap: .35rem; padding: 2rem .65rem; } .lightbox-arrow { width: 2rem; height: 2rem; font-size: 1.5rem; } .lightbox-close { top: .7rem; right: .7rem; } }
+@media (max-width: 380px) { .gallery-grid { gap: .55rem; } .gallery-tile { padding: .35rem .35rem 2rem; } .gallery-caption { right: .35rem; bottom: .55rem; left: .35rem; font-size: .66rem; } }
+@media (min-width: 721px) and (max-width: 960px) {
+  .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .gallery-tile-1, .gallery-tile-2, .gallery-tile-3, .gallery-tile-4, .gallery-tile-5 { grid-column: auto; margin-top: 0; }
+  .gallery-tile-4 { grid-column: 1 / 2; }
+  .gallery-tile-5 { grid-column: 2 / 3; }
+  .gallery-tile { transform: none; }
+  .gallery-tile:hover, .gallery-tile:focus-visible { transform: translateY(-5px) scale(1.01); }
+}
+@media (max-width: 720px) {
+  .gallery-tile-1, .gallery-tile-2, .gallery-tile-3, .gallery-tile-4, .gallery-tile-5 { margin-top: 0; }
+  .gallery-tile-2, .gallery-tile-4 { margin-top: .5rem; }
+  .gallery-tile { transform: none; }
+  .gallery-tile:hover, .gallery-tile:focus-visible { transform: translateY(-4px) scale(1.01); }
+}

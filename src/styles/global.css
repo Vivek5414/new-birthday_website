@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', 'Trebuchet MS', sans-serif;
+  color: #25382d;
+  background: #fbf8ef;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --forest: #153d32;
+  --forest-deep: #102f28;
+  --moss: #607d49;
+  --leaf: #dfe9ce;
+  --cream: #fff9e6;
+  --paper: #fbf8ef;
+  --sunshine: #ffd269;
+  --coral: #e87e62;
+  --portrait-gold: #e5b34e;
+  --portrait-cream: #fff6dd;
+  --portrait-leaf: #73934b;
+  --portrait-leaf-edge: #d3b566;
+  --portrait-stem: #9c7439;
+  --postcard-leaf: #73934b;
+  --ink: #25382d;
+  --muted: #6f7868;
+  --line: #e4e6d9;
+  --content-max: 72rem;
+  --section-pad-y: clamp(4rem, 8vw, 7rem);
+  --section-pad-x: max(1.25rem, calc((100% - var(--content-max)) / 2));
+  --card-radius: 1rem;
+  --content-gap: clamp(1.5rem, 4vw, 3.5rem);
+  --display-font: 'Outfit', 'Trebuchet MS', sans-serif;
+  font-optical-sizing: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; margin: 0; }
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+::selection { color: var(--forest-deep); background: var(--sunshine); }
+:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
